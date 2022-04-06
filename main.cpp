@@ -21,7 +21,11 @@ void test1() {
     cout << Poly((p2) + Poly(2, 5) - Poly(3, 4) + Poly(1, 0)) << endl;
     cout << (p2 - p2) << endl;
 
-    //Test * operator.
+    //Test = operator.
+    Poly p4(4, 4);
+    cout << "Before assignment: " << p4 << endl;
+    p4 = p3;
+    cout << "After assignment: " << p4 << endl;
 
 }
 

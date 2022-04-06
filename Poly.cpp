@@ -96,5 +96,23 @@ Poly Poly::operator-(const Poly &p) const {
     return subtracted;
 }
 
+Poly &Poly::operator=(const Poly &p) {
+    if (this == &p) {
+        return *this;
+    }
+    this->highestDegree = p.highestDegree;
+    delete[] values;
+    values = new int[highestDegree+1];
+    for(int i = 0; i < highestDegree+1; i++) {
+        values[i] = p.values[i];
+    }
+    return *this;
+}
+
+Poly Poly::operator==(const Poly &p) const {
+    return Poly();
+}
+
+
 
 

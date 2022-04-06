@@ -39,36 +39,43 @@ public:
     ~Poly();
 
     /**
-     *
-     * @param os
-     * @param p
-     * @return
+     * Overloads the << operator so the object can be output in a readable format.
+     * @param os Reference to the output stream object to output to.
+     * @param Poly object that will be read and output.
+     * @return Reference to the output stream object containing the output format and information.
      */
     friend ostream& operator<<(ostream& os, const Poly& p);
 
     /**
-     *
-     * @param p
-     * @return
+     * Overloads the + operator to allow for addition between Poly objects.
+     * @param p Another poly object that will be added to this object.
+     * @return A new poly object which contains the sum of this object and the parameter poly object.
      */
     Poly operator+(const Poly &p) const;
 
     /**
-     *
-     * @param p
-     * @return
+     * Overloads the - operator to allow for subtraction between Poly object.
+     * @param p Another poly object that will be subtracted from this object.
+     * @return A new poly object containing the difference between this and the parameter poly object.
      */
     Poly operator-(const Poly &p) const;
 
+    Poly operator*(const Poly &p) const;
+
+    Poly operator==(const Poly &p) const;
+
+    Poly &operator=(const Poly &p);
+
+
 protected:
-    //
+    // Pointer that will be used to dynamically allocate an array to hold coefficient values for the polynomial.
     int* values;
-    //
+    // Integer that stores the highest degree of the polynomial.
     int highestDegree;
 
 private:
     /**
-     *
+     * Helper method that populates a constructed Poly object with 0 values.
      */
     void populateZero();
 };
